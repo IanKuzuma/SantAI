@@ -3,7 +3,7 @@ import streamlit as st
 from langchain_groq import ChatGroq
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain.schema import Document
 import os
 from dotenv import load_dotenv
@@ -68,7 +68,7 @@ def build_knowledge_base():
 
     # 4. Create Vector Store
     try:
-        vectorstore = Chroma.from_documents(documents, embeddings)
+        vectorstore = FAISS.from_documents(documents, embeddings)
         st.sidebar.success("Knowledge base loaded successfully!")
         return vectorstore
     except Exception as e:
