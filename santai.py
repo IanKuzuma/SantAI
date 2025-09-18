@@ -230,7 +230,13 @@ if st.session_state.get('should_generate_analysis', False):
             lenders_context += f"\n\n**Lender {i} - {lender['name']}:**\n{context_content}"
         
         # Create comprehensive analysis prompt
-        analysis_prompt = f"""Anda adalah SantAI, analis finansial yang ahli dan empatik. Berikan analisis komprehensif dan rekomendasi berdasarkan data pengguna dan regulasi OJK.
+        analysis_prompt = f"""ANDA ADALAH SANTAI - AHLI ANALIS FINANSIAL YANG AHLI DAN EMPATIK DAN HANYA MENGGUNAKAN INFORMASI DARI DOKUMEN REGULASI OJK YANG DISEDIAKAN.
+
+**PERINTAH PENTING:**
+1. GUNAKAN HANYA INFORMASI DARI DOKUMEN INFORMASI REGULASI OJK YANG DISEDIAKAN
+2. JANGAN MENGGUNAKAN PENGETAHUAN LUAR/INTERNAL TENTANG LENDER
+3. JIKA LENDER TIDAK ADA DI DOKUMEN, KATAKAN "TIDAK TERCANTUM DALAM DAFTAR OJK/ILEGAL"
+4. JIKA LENDER ADA DI DOKUMEN, GUNAKAN STATUS PERSIS SEPERTI YANG TERCANTUM
 
 **DATA PENGGUNA:**
 - Nama: {user_info['name']}
@@ -245,20 +251,47 @@ if st.session_state.get('should_generate_analysis', False):
 """ + "\n".join([f"- {lender['name']}: Rp {lender.get('loan_amount', 0):,.0f} (Angsuran: Rp {lender.get('monthly_installment', 0):,.0f}/bulan)" 
                 for lender in user_info['lenders']]) + f"""
 
-**KONTEKS REGULASI OJK UNTUK SEMUA LENDER:**
+**INFORMASI REGULASI OJK (HANYA INI YANG BOLEH DIGUNAKAN):**
 {lenders_context}
 
-**TUGAS ANDA:**
-1. Analisis kesehatan finansial pengguna berdasarkan rasio hutang-penghasilan total
-2. Identifikasi status legalitas masing-masing lender berdasarkan data OJK
-3. Berikan rekomendasi spesifik yang sesuai dengan kondisi multi-pinjaman pengguna
-4. Prioritaskan lender mana yang harus diselesaikan terlebih dahulu
-5. Jelaskan langkah-langkah konkret yang harus diambil
-6. Sertakan dasar hukum/referensi regulasi OJK yang relevan
-7. Bersikap empatik dan memberikan harapan
+**TUGAS ANALISIS:**
+1. UNTUK SETIAP LENDER, CEK APAKAH NAMANYA TERCANTUM DALAM DOKUMEN DI ATAS
+2. JIKA TERCANTUM, GUNAKAN STATUS LEGAL/ILEGAL SEPERTI YANG TERTULIS
+3. JIKA TIDAK TERCANTUM, KATAKAN "TIDAK TERCANTUM DALAM DAFTAR RESMI OJK/ILEGAL"
+4. JANGAN MEMBUAT ASUMSI ATAU MENGGUNAKAN PENGETAHUAN LAIN
+5. BERIKAN REKOMENDASI BERDASARKAN STATUS YANG ADA DI DOKUMEN
 
-**ANALISIS DAN REKOMENDASI:**
+**HASIL ANALISIS LEGALITAS LENDER:**
 """
+        # Add strict instructions to avoid vague answers
+        strict_instructions = """
+**CONTOH FORMAT YANG HARUS DIIKUTI:**
+- [Nama Lender]: [STATUS BERDASARKAN DOKUMEN] - [Alasan berdasarkan dokumen]
+- [Nama Lender]: TIDAK TERCANTUM DALAM DAFTAR RESMI OJK
+
+**JANGAN MENAMBAHKAN:**
+- "Berdasarkan informasi yang ada"
+- "Namun, berdasarkan pengetahuan"
+- "Kemungkinan legal/ilegal"
+- Informasi di luar dokumen yang disediakan
+
+**LANGKAH ANALISIS:**
+1. Cari nama lender di teks regulasi di atas
+2. Jika ditemukan, salin status persis seperti yang tertulis
+3. Jika tidak ditemukan, tulis "TIDAK TERCANTUM DALAM DAFTAR RESMI OJK"
+4. Analisis kesehatan finansial pengguna berdasarkan rasio hutang-penghasilan total yang bersumber dari pinjaman legal saja
+5. Berikan rekomendasi spesifik yang sesuai dengan kondisi multi-pinjaman pengguna
+6. Prioritaskan lender mana yang harus diselesaikan terlebih dahulu (lender ilegal duluan, dari yang pokok pinjaman nya terkecil ke besar)
+7. Jelaskan langkah-langkah konkret yang harus diambil
+8. Sertakan dasar hukum/referensi regulasi OJK yang relevan
+9. Bersikap empatik dan memberikan harapan
+10. Berikan rekomendasi sesuai protokol yang ada di dokumen yang disediakan
+
+**MULAI ANALISIS SEKARANG:**
+"""
+
+        analysis_prompt += strict_instructions
+        
         # Generate analysis
         try:
             for chunk in llm.stream(analysis_prompt):
