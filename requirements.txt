@@ -5,7 +5,7 @@ python-dotenv
 langchain
 langchain-groq
 langchain-community
-chromadb
+faiss-cpu
 tiktoken # Needed for text splitting
 requests
 beautifulsoup4 # For web scraping if needed
