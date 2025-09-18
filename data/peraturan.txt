@@ -1,0 +1,376 @@
+TITLE: Panduan Verifikasi Pinjol (SantAI)
+VERSION: 1.0
+UPDATED_AT: 2025-09-18
+SOURCE_TYPE: INTERNAL_GUIDE
+JURISDICTION: Indonesia
+TAGS: verifikasi, legal, ilegal, OJK, Satgas
+SUMMARY: Langkah cepat cek legal/ilegal & respons awal pengguna
+
+
+BAB 1. Ringkasan Eksekutif (Revisi Lengkap)
+
+Fenomena pinjaman online dan akses kredit digital di Indonesia berkembang pesat melalui berbagai saluran. Masyarakat dapat mengakses dana dari penyelenggara LEGAL yang berizin, seperti bank umum (konvensional dan digital), Bank Perkreditan Rakyat (BPR), Bank Pembiayaan Rakyat Syariah (BPRS), perusahaan pembiayaan termasuk Buy Now Pay Later (BNPL), serta penyelenggara Layanan Pinjam Meminjam Uang Berbasis Teknologi Informasi (P2PL) yang diawasi OJK. Namun, di luar ekosistem ini juga muncul ribuan aplikasi ILEGAL yang tidak memiliki izin resmi, sering kali menjebak pengguna dengan bunga mencekik, intimidasi, dan praktik penagihan melanggar hukum.
+
+Akibatnya, banyak masyarakat menghadapi masalah serius:
+	1. Tidak tahu status pemberi pinjaman — apakah berasal dari entitas resmi (bank, perusahaan pembiayaan, P2PL legal) atau aplikasi ilegal.
+	2. Bingung memprioritaskan pembayaran — terutama jika memiliki kombinasi pinjaman dari bank, BNPL, P2PL legal, dan P2PL ilegal.
+	3. Mengalami intimidasi dan penyalahgunaan data oleh penagih ilegal.
+	4. Kurang memahami hak konsumen dan regulasi yang berlaku di sektor keuangan.
+
+SantAI (Santai + AI) hadir sebagai solusi berbasis kecerdasan buatan untuk:
+- Verifikasi cepat: mengecek status pinjaman dengan mengacu pada daftar resmi OJK, meliputi bank umum, bank digital, BPR, BPRS, perusahaan pembiayaan/BNPL, serta P2PL berizin.
+- Protokol tindakan aman: memberi panduan berbeda sesuai kategori pinjaman. Untuk ILEGAL, sistem menenangkan pengguna, mengingatkan bahwa mereka tidak wajib membayar, dan mengarahkan agar segera melapor. Untuk LEGAL, sistem membantu menghitung Debt Service Ratio (DSR), memberi strategi pembayaran, atau menyarankan restrukturisasi.
+- Pendampingan empatik: jawaban diberikan dengan bahasa sederhana, menenangkan, dan didukung rujukan resmi, sehingga pengguna merasa aman, tidak panik, dan tahu langkah yang benar.
+
+Hasil yang diharapkan:
+- Pengguna merasa lebih tenang karena mendapatkan jawaban berbasis regulasi dan sumber resmi.
+- Pengguna tahu langkah jelas menghadapi pinjaman dari berbagai sumber, baik bank, perusahaan pembiayaan, BNPL, maupun P2PL ilegal.
+- Pengguna semakin paham haknya, seperti hak privasi, larangan penagihan kasar, serta opsi hukum dan restrukturisasi di lembaga legal.
+
+Dengan pendekatan ini, SantAI tidak sekadar chatbot, melainkan digital lifeline yang membantu masyarakat memilah pinjaman legal versus ilegal, memandu strategi pembayaran yang sehat, dan melindungi mereka dari jeratan pinjol ilegal yang merugikan.
+
+
+BAB 2. Definisi & Istilah (Versi Final)
+Bagian ini menjelaskan istilah-istilah utama terkait jenis pinjaman LEGAL dan ILEGAL di Indonesia, agar pengguna memahami perbedaannya dan SantAI dapat memberikan rekomendasi yang konsisten.
+
+[DEF:LEGAL] Pinjaman Legal
+Pinjaman yang diberikan oleh lembaga yang berizin dan diawasi OJK atau otoritas resmi negara. Peminjam wajib membayar sesuai perjanjian, namun memiliki hak konsumen yang dilindungi regulasi.
+Jenis-jenis pinjaman legal di Indonesia mencakup:
+	1. [DEF:BANK] Bank
+	- Bank Umum (konvensional)
+	- Bank Digital (full online/digital only)
+	- Bank Perkreditan Rakyat (BPR)
+	- Bank Pembiayaan Rakyat Syariah (BPRS)
+	Semua berada dalam pengawasan OJK, menawarkan pinjaman konsumtif maupun produktif.
+	2. [DEF:FINANCE] Perusahaan Pembiayaan (Multifinance)
+	Perusahaan non-bank yang memberikan pembiayaan seperti leasing kendaraan, kredit multiguna, dan [DEF:BNPL] Buy Now Pay Later (BNPL).
+	BNPL adalah salah satu produk multifinance yang memungkinkan pengguna membeli barang/jasa dengan cicilan.
+	Semua perusahaan pembiayaan harus memiliki izin OJK.
+	3. [DEF:P2PL] Layanan Pinjam Meminjam Uang Berbasis Teknologi Informasi (LPBBTI / Fintech Lending)
+	- Dikenal juga sebagai P2PL (peer-to-peer lending) atau Pinjaman Daring Legal (Pindar).
+	- Satu produk yang sama, hanya berbeda istilah.
+	- Wajib terdaftar dan berizin OJK, tercantum dalam daftar resmi, dan memiliki nomor izin.
+
+[DEF:ILEGAL] Pinjaman Ilegal
+Segala bentuk pinjaman yang tidak memiliki izin OJK atau tidak diatur otoritas resmi. Pinjaman ilegal tidak memiliki dasar hukum sehingga peminjam tidak berkewajiban membayar.
+- [DEF:PINJOLILEGAL] Pinjaman Online Ilegal (Pinjol Ilegal) adalah salah satu bentuk pinjaman ilegal, biasanya berupa aplikasi atau website tidak resmi. Ciri-cirinya: bunga sangat tinggi, penyalahgunaan data pribadi, serta penagihan kasar atau mengintimidasi.
+- Pinjaman ilegal juga bisa muncul dalam bentuk gagal bayar rentenir digital, situs palsu yang meniru bank/fintech resmi, atau layanan kredit tanpa izin yang beroperasi offline maupun online.
+
+[DEF:DSR] Debt Service Ratio (DSR)
+Rasio antara total cicilan bulanan dengan pendapatan bulanan. Digunakan untuk menilai kemampuan bayar pinjaman:
+- <30%: aman
+- 30–50%: waspada
+- >50%: risiko tinggi
+
+[DEF:RESTRUK] Restrukturisasi Pinjaman
+Upaya penyelesaian pinjaman LEGAL dengan cara mengubah tenor, menurunkan bunga, atau menjadwalkan ulang pembayaran melalui kesepakatan dengan pemberi pinjaman.
+
+[DEF:COLLECTOR] Penagih / Debt Collector
+Pihak yang melakukan penagihan utang.
+- Untuk LEGAL lender: penagihan wajib sesuai etika dan aturan OJK (tidak boleh kasar, mengintimidasi, atau menyebarkan data pribadi).
+- Untuk ILEGAL lender: penagihan sering melanggar hukum, misalnya ancaman atau teror, dan dapat dilaporkan ke Satgas/OJK.
+
+
+BAB 3. Dasar Hukum & Regulasi 
+Bagian ini merangkum aturan hukum dan kode etik yang mengatur pinjaman legal, perlindungan konsumen, dan tata cara penagihan di Indonesia. SantAI menggunakan acuan ini untuk membedakan pinjaman LEGAL vs ILEGAL, serta memberi rekomendasi langkah aman kepada pengguna.
+
+[REF:POJK77] POJK No. 77/POJK.01/2016 – Layanan Pinjam Meminjam Uang Berbasis Teknologi Informasi (LPBBTI / P2PL)
+- Pasal 7: Penyelenggara wajib memiliki izin OJK sebelum beroperasi.
+- Pasal 19: Wajib menjaga kerahasiaan dan keutuhan data pribadi pengguna.
+- Pasal 29: Informasi kepada pengguna harus benar, jelas, dan tidak menyesatkan.
+- Pasal 47: Penyelenggara wajib menyampaikan laporan berkala kepada OJK.
+
+[REF:SEOJK18] SEOJK No. 18/SEOJK.05/2017 – Tata Kelola & Manajemen Risiko LPBBTI
+- Bab II, Pasal 5–9: Penyelenggara wajib memiliki kebijakan tata kelola, mekanisme pengaduan konsumen, serta manajemen risiko.
+- Pasal 12: Kewajiban melaporkan data pinjaman ke OJK.
+
+[REF:POJK10] POJK No. 10/POJK.05/2022 – Perlindungan Konsumen Sektor Jasa Keuangan
+- Pasal 31 ayat (1): Penagihan wajib dilakukan dengan cara beretika, tanpa ancaman atau kekerasan.
+- Pasal 34: Konsumen berhak atas kerahasiaan data pribadi.
+- Pasal 50: Konsumen berhak memperoleh penyelesaian sengketa secara adil.
+
+[REF:UU-PK] UU No. 8 Tahun 1999 – Perlindungan Konsumen
+- Pasal 4 huruf a: Konsumen berhak atas kenyamanan, keamanan, dan keselamatan.
+- Pasal 19: Pelaku usaha wajib memberikan kompensasi atau ganti rugi atas kerugian konsumen.
+
+[REF:SLIK] POJK No. 64/POJK.03/2020 – Sistem Layanan Informasi Keuangan (SLIK / iDeb OJK)
+- Pasal 2: Lembaga keuangan wajib menyampaikan data debitur ke SLIK.
+- Pasal 3: Konsumen berhak mengakses informasi debitur (iDeb).
+	→ iDeb digunakan untuk menilai total kewajiban pinjaman legal seseorang.
+
+[REF:SATGAS] Satgas PASTI – Penanganan Aktivitas Keuangan Ilegal
+- Secara rutin merilis daftar pinjol ilegal yang diblokir.
+- Menegaskan: peminjam di pinjol ilegal tidak diwajibkan membayar.
+- Korban diminta mengumpulkan bukti (chat, SMS, rekening penagih) untuk pelaporan.
+
+[REF:AFPI-KODEETIK] Kode Etik Perilaku Penagihan – Asosiasi Fintech Pendanaan Bersama Indonesia (AFPI, Revisi 2020)
+- Bab II (Tenaga Penagihan): Hanya boleh dilakukan oleh penagih bersertifikat AFPI.
+- Bab III (Batas Waktu Penagihan): Penagihan hanya boleh pukul 08.00–20.00 WIB, pada hari kerja.
+- Bab IV (Etika & Larangan):
+	- Dilarang mengancam, menggunakan kekerasan, atau mempermalukan konsumen.
+	- Dilarang menyebarkan data pribadi.
+	- Dilarang menagih lewat keluarga/teman/kantor, kecuali sekadar mencari alamat.
+	- Harus berbahasa sopan & profesional.
+- Bab V (Hak Konsumen): Konsumen berhak mengadu ke penyelenggara, AFPI, atau OJK jika dirugikan.
+
+[REF:UUITE] UU No. 11 Tahun 2008 tentang ITE (jo. UU No. 19/2016)
+- Pasal 26 ayat (1): Penggunaan data pribadi harus dengan persetujuan pemilik.
+- Pasal 45A ayat (1): Penyebaran data pribadi tanpa izin → pidana 6 tahun / denda Rp1 miliar.
+
+[REF:KUHP] Kitab Undang-Undang Hukum Pidana
+- Pasal 167: Masuk rumah/pekarangan orang tanpa izin → pidana penjara 9 bulan.
+- Pasal 168: Menolak pergi setelah diminta pemilik → juga dapat dipidana.
+- Pasal 368: Pemerasan dengan ancaman → pidana penjara 9 tahun.
+- Pasal 335: Intimidasi atau perbuatan tidak menyenangkan → pidana.
+- Pasal 310–311: Pencemaran nama baik → pidana, sering dilanggar penagih ilegal.
+
+
+BAB 4. Bab: Sumber Rujukan 
+Daftar Platform Fintech Lending Legal (P2PL / LPBBTI) – Contoh Nama & Website
+Berikut beberapa platform P2PL legal di Indonesia lengkap nama PT & website, berdasarkan daftar OJK terbaru:
+1. Pintek | PT Pinduit Teknologi Indonesia | pintek.id
+2. KTA Kilat | PT Pendanaan Teknologi Nusa | pendanaan.com
+3. Kredit Pintar | PT Kredit Pintar Indonesia | kreditpintar.com
+4. Maucash | PT Astra Welab Digital Arta | maucash.id
+5. Finmas | PT Oriente Mas Sejahtera | finmas.co.id
+6. KlikA2C | PT Aman Cermat Cepat | klika2c.co.id
+7. Akseleran | PT Akseleran Keuangan Inklusif Indonesia | akseleran.co.id
+8. Ammana.id | PT Ammana Fintek Syariah | ammana.id
+9. PinjamanGO | PT Dana Pinjaman Inklusif | pinjamango.co.id
+10. KoinP2P | PT Lunaria Annua Teknologi | koinp2p.com
+11. Pohondana | PT Pohon Dana Indonesia | pohondana.id
+12. Mekar | PT Mekar Investama Teknologi | mekar.id
+13. AdaKami | PT Pembiayaan Digital Indonesia | adakami.id
+14. Esta Kapital Fintek | PT Esta Kapital Fintek | estakapital.co.id
+15. KreditPro | PT Tri Digi Fin | kreditpro.id
+16. FINTAG | PT Fintegra Homido Indonesia | fintag.id
+17. Rupiah Cepat | PT Kredit Utama Fintech Indonesia | rupiahcepat.co.id
+18. Crowdo | PT Mediator Komunitas Indonesia | crowdo.co.id
+19. Indodana | PT Artha Dana Teknologi | indodana.id
+20. JULO | PT Julo Teknologi Finansial | julo.co.id
+21. Pinjamwinwin | PT Progo Puncak Group | pinjamwinwin.com
+22. DanaRupiah | PT Layanan Keuangan Berbagi | danarupiah.id
+23. OVO Finansial | PT Indonusa Bara Sejahtera | ovofinansial.com
+24. PinjamModal | PT Finansial Integrasi Teknologi | pinjammodal.id
+25. ALAMI P2P Sharia | PT Alami Fintek Sharia | p2p.alamisharia.co.id
+26. AwanTunai | PT Simplefi Teknologi Indonesia | awantunai.co.id
+27. Danakini | PT Dana Kini Indonesia | danakini.co.id
+28. Singa | PT Abadi Sejahtera Finansindo | singa.id
+29. Danamerdeka | PT Intekno Raya | danamerdeka.co.id
+30. Easycash | PT Indonesia Fintopia Technology | easycash.id
+31. PinjamYuk | PT Kuaikuai Tech Indonesia | pinjamyuk.co.id
+32. FinPlus | PT Rezeki Bersama Teknologi | finplus.co.id
+33. UangMe | PT UangMe Fintek Indonesia | uangme.id
+34. PinjamDuit | PT Stanford Teknologi Indonesia | pinjamduit.co.id
+35. Dana Syariah | PT Dana Syariah Indonesia | danasyariah.id
+36. Batumbu | PT Berdayakan Usaha Indonesia | batumbu.id
+37. Cashcepat | PT Artha Permata Makmur | cashcepat.id
+38. KlikUMKM | PT Pinjaman Kemakmuran Rakyat | klikumkm.co.id
+39. Pinjam Gampang | PT Kredit Plus Teknologi | kreditplusteknologi.id
+40. Cicil | PT Cicil Solusi Mitra Teknologi | cicil.co.id
+41. Lumbung Dana Nusantara | PT Lumbung Dana Indonesia | lumbungdana.co.id
+42. 360 KREDI | PT Inovasi Terdepan Nusantara | 360kredi.id
+43. Kredinesia | PT Kreditku Teknologi Indonesia | kredinesia.id
+44. Solusiku | PT Anugerah Digital Indonesia | solusi-ku.id
+45. Cairin | PT Idana Solusi Sejahtera | cairin.co.id
+46. TrustIQ | PT Trust Teknologi Finansial | trustiq.id
+47. KLIK Kami | PT Harapan Fintech Indonesia | klikkami.co.id
+48. Duha Syariah | PT Duha Madani Syariah | duhamadaniSyariah.com
+49. Invoila | PT Sol Mitra Fintec | invoila.co.id
+50. Sanders One Stop Solution | PT Satustop Finansial Solusi | sanders.co.id
+51. DanaBagus | PT Dana Bagus Indonesia | danabagus.id
+52. UKU | PT Teknologi Merlin Sejahtera | ukuindo.com
+53. KREDITO | PT Fintek Digital Indonesia | kredito.id
+54. AdaPundi | PT Info Tekno Siaga | adapundi.com
+55. Lentera Dana Nusantara | PT Lentera Dana Nusantara | lenteradana.co.id
+56. Modal Nasional | PT Solusi Teknologi Finansial | modalnasional.co.id
+57. Komunal | PT Komunal Finansial Indonesia | komunal.co.id
+58. Restock.ID | PT Cerita Teknologi Indonesia | restock.id
+59. Ringan | PT Ringan Teknologi Indonesia | ringan.co.id
+60. Avantee | PT Grha Dana Bersama | avantee.co.id
+61. Gradana | PT Gradana Teknoruci Indonesia | gradana.co.id
+62. Danacita | PT Inclusive Finance Group | danacita.co.id
+63. IKI Modal | PT IKI Karunia Indonesia | ikimodal.com
+64. Ivoji | PT Finansia Aira Teknologi | ivoji.id
+65. Indofund.id | PT Bursa Akselerasi Indonesia | indofund.id
+66. iGrow | PT LinkAja Modalin Nusantara | igrow.asia
+67. Danai.id | PT Adiwisista Finansial Teknologi | danai.id
+68. DUMI | PT Fidac Inovasi Teknologi | minjem.com
+69. Lahan Sikam | PT Lampung Berkah Finansial Teknologi | lahansikam.co.id
+70. Qazwa.id | PT Qazwa Mitra Hasanah | qazwa.id
+71. KrediFazz | PT KrediFazz Digital Indonesia | kredifazz.id
+72. Doeku | PT Doeku Peduli Indonesia | doeku.id
+73. Aktivaku | PT Aktivaku Investama Teknologi | aktivaku.com
+74. Danain | PT Mulia Inovasi Digital | danain.co.id
+75. Indosaku | PT Sens Teknologi Indonesia | indosaku.id
+76. Edufund | PT Fintech Bina Bangsa | edufund.co.id
+77. GandengTangan | PT Kreasi Anak Indonesia | gandengtangan.co.id
+78. PAPITUPI Syariah | PT Piranti Alphabet Perkasa | papitupisyariah.com
+79. BantuSaku | PT Smartec Teknologi Indonesia | bantusaku.id
+80. Danabijak | PT Digital Micro Indonesia | danabijak.com
+81. AdaModal | PT Solid Fintek Indonesia | adamodal.co.id
+82. SamaKita | PT Sejahtera Sama Kita | samakita.co.id
+83. KawanCicil | PT Kawan Cicil Teknologi Utama | kawancicil.co.id
+84. Crowde | PT Crowde Membangun Bangsa | crowde.co.id
+85. KlikCair | PT Klikcair Magga Jaya | klikcair.com
+86. Ethis | PT Ethis Fintek Indonesia | ethis.co.id
+87. SAMIR | PT Sahabat Mikro Fintek | samir.co.id
+88. UATAS | PT Plus Ultra Abadi | uatas.id
+89. Asetku | PT Pintar Inovasi Digital | asetku.co.id
+90. Findaya | PT Mapan Global Reksa | findaya.co.id
+91. TunaiKita | PT Tunai Kita Fintek Indonesia | tunaikita.co.id
+92. KrediModal | PT Kredi Modal | kredimodal.co.id
+93. InvoFinance | PT Invo Finance Indonesia | invofinance.id
+94. Indodigital | PT Indo Digital Teknologi | indodigital.co.id
+95. PinjamOne | PT PinjamOne Teknologi | pinjamone.id
+
+Daftar Bank Berizin OJK
+Livin’ by Mandiri — PT Bank Mandiri (Persero) Tbk — bankmandiri.co.id
+BRImo — PT Bank Rakyat Indonesia (Persero) Tbk — bri.co.id
+wondr by BNI — PT Bank Negara Indonesia (Persero) Tbk — bni.co.id
+BTN Mobile — PT Bank Tabungan Negara (Persero) Tbk — btn.co.id
+BCA mobile — PT Bank Central Asia Tbk — bca.co.id
+OCTO Mobile — PT Bank CIMB Niaga Tbk — cimbniaga.co.id
+D-Bank PRO — PT Bank Danamon Indonesia Tbk — danamon.co.id
+PermataME (suksesor PermataMobile X) — PT Bank Permata Tbk — permatabank.com
+MobilePanin — PT Bank Panin Tbk — panin.co.id
+OCBC mobile Indonesia — PT Bank OCBC NISP Tbk — ocbc.co.id
+M2U ID — PT Bank Maybank Indonesia Tbk — maybank.co.id
+M-Smile — PT Bank Mega Tbk — bankmega.com
+UOB TMRW — PT Bank UOB Indonesia — uob.co.id
+HSBC Indonesia (HSBC Mobile Banking) — PT Bank HSBC Indonesia — hsbc.co.id
+digibank by DBS — PT Bank DBS Indonesia — dbs.id
+myBCA — PT Bank Central Asia Tbk — bca.co.id
+blu — PT Bank Digital BCA — bcadigital.co.id
+Jenius — PT Bank BTPN Tbk — jenius.com
+BSI Mobile / BYOND by BSI — PT Bank Syariah Indonesia Tbk — bankbsi.co.id
+Muamalat DIN — PT Bank Muamalat Indonesia Tbk — bankmuamalat.co.id
+KBstar — PT Bank KB Bukopin Tbk — kbbukopin.co.id
+SimobiPlus — PT Bank Sinarmas Tbk — banksinarmas.com
+MotionBank — PT Bank MNC Internasional Tbk — mncbank.co.id / motionbank.id
+LINE Bank — PT Bank KEB Hana Indonesia — linebank.co.id
+Jago — PT Bank Jago Tbk — jago.com
+neobank — PT Bank Neo Commerce Tbk — bankneocommerce.co.id
+SeaBank — PT Bank SeaBank Indonesia — seabank.co.id
+Mobile QNB (QNB Indonesia Mobile Banking) — PT Bank QNB Indonesia Tbk — qnb.co.id
+J Mobile — PT Bank JTrust Indonesia Tbk — jtrustbank.co.id
+Victoria Mobile — PT Bank Victoria International Tbk — victoriabank.co.id
+Tepat Mobile — PT Bank BTPN Syariah Tbk — btpnsyariah.com
+BTN Syariah (BTN Mobile) — Unit Usaha Syariah PT Bank Tabungan Negara (Persero) Tbk — btn.co.id/syariah
+BCA Syariah Mobile — PT Bank BCA Syariah — bcasyariah.co.id
+PermataME Syariah (di app yang sama) — PT Bank Permata Tbk — permatabank.com
+OCBC mobile (Syariah services in-app) — PT Bank OCBC NISP Tbk — ocbc.co.id
+UOB TMRW (Syariah services in-app) — PT Bank UOB Indonesia — uob.co.id
+Danamon D-Bank PRO (tersedia layanan syariah) — PT Bank Danamon Indonesia Tbk — danamon.co.id
+Allo — PT Allo Bank Indonesia Tbk — allobank.com
+Bank Saqu — PT Bank Saqu Indonesia (eks Bank Jasa Jakarta) — banksaqu.co.id
+myBCA (web + mobile; ekosistem BCA) — PT Bank Central Asia Tbk — mybca.bca.co.id
+CommBank SmartWealth / CommBank Mobile* — PT Bank Commonwealth — commbank.co.id
+SC Mobile Indonesia — Standard Chartered Bank Indonesia — sc.com/id
+Citi Mobile® — Citibank N.A., Indonesia — citibank.co.id
+MobilePanin Biz (korporasi) — PT Bank Panin Tbk — panin.co.id
+OCTO Mobile Biz — PT Bank CIMB Niaga Tbk — cimbniaga.co.id
+D-Bank PRO Biz — PT Bank Danamon Indonesia Tbk — danamon.co.id
+PermataMobile Bisnis — PT Bank Permata Tbk — permatabank.com
+BRImo Bisnis (via BRISPOT/BRI API ekosistem) — PT Bank Rakyat Indonesia (Persero) Tbk — bri.co.id
+Livin’ Business (pilot/layanan bisnis di Livin’) — PT Bank Mandiri (Persero) Tbk — bankmandiri.co.id
+myBCA Bisnis — PT Bank Central Asia Tbk — bca.co.id
+Bank Saqu — PT Bank Saqu Indonesia (eks Bank Jasa Jakarta) — banksaqu.co.id
+Allo — PT Allo Bank Indonesia Tbk — allobank.com
+MotionBank — PT Bank MNC Internasional Tbk — mncbank.co.id / motionbank.id
+LINE Bank — PT Bank KEB Hana Indonesia — linebank.co.id
+digibank by DBS — PT Bank DBS Indonesia — dbs.id
+HSBC Indonesia app — PT Bank HSBC Indonesia — hsbc.co.id
+Citi Mobile® — Citibank N.A. Indonesia — citibank.co.id
+SC Mobile Indonesia — Standard Chartered Bank Indonesia — sc.com/id
+CommBank Mobile — PT Bank Commonwealth — commbank.co.id
+UOB TMRW — PT Bank UOB Indonesia — uob.co.id
+J Trust Mobile — PT Bank J Trust Indonesia Tbk — jtrustbank.co.id
+QNB Indonesia Mobile — PT Bank QNB Indonesia Tbk — qnb.co.id
+ICBC Mobile — PT Bank ICBC Indonesia — icbcindo.com
+CTBC Mobile — PT Bank CTBC Indonesia — ctbcindonesia.com
+CCBI Mobile — PT Bank China Construction Bank Indonesia — ccbindonesia.com
+Resona Mobile — PT Bank Resona Perdania — resonabank.co.id
+Mizuho Indonesia Mobile — PT Bank Mizuho Indonesia — mizuho.co.id
+MUFG Mobile — MUFG Bank Ltd., Cabang Jakarta — mufg.jp
+Bank of America Indonesia (corporate banking app) — Bank of America NA Indonesia — bofaml.com
+Deutsche Bank Indonesia (db OnlineBanking) — Deutsche Bank AG Indonesia — db.com
+JP Morgan Indonesia (J.P. Morgan Access) — JPMorgan Chase Bank NA Indonesia — jpmorgan.com
+ANZ Transactive — PT Bank ANZ Indonesia — anz.co.id
+Rabobank Indonesia (corporate services, sebelum merger) — PT Bank Rabobank International Indonesia — rabobank.co.id
+Bank Ganesha Mobile — PT Bank Ganesha Tbk — bankganesha.co.id
+Bank Harda → Allo Bank (sudah rebranding, masuk Allo) — PT Bank Harda Internasional Tbk — allobank.com
+Bank Victoria Syariah Mobile — PT Bank Victoria Syariah — bankvictoriasyariah.co.id
+BJB Digi — PT Bank Pembangunan Daerah Jawa Barat dan Banten Tbk | BJB Syariah — bjbsyariah.co.id
+BTN Syariah (BTN Mobile, layanan syariah) — PT Bank Tabungan Negara (Persero) Tbk Unit Syariah — btn.co.id/syariah
+BNI Syariah (sudah merger → BSI) — PT Bank BNI Syariah — bni.co.id
+BRI Syariah (sudah merger → BSI) — PT Bank BRI Syariah — bri.co.id
+Mandiri Syariah (sudah merger → BSI) — PT Bank Syariah Mandiri — bankmandiri.co.id
+BCA Syariah Mobile — PT Bank BCA Syariah — bcasyariah.co.id
+Mega Syariah Mobile — PT Bank Mega Syariah — bankmegasyariah.co.id
+Panin Dubai Syariah Mobile — PT Bank Panin Dubai Syariah Tbk — paninbanksyariah.co.id
+KB Bukopin Syariah (KBBS Mobile) — PT Bank KB Bukopin Syariah — kbbsyariah.co.id
+Bank Aceh Syariah Mobile — PT Bank Aceh Syariah — bankaceh.co.id
+Bank NTB Syariah Mobile — PT Bank NTB Syariah — bankntbsyariah.co.id
+Bank Sumut Syariah (Sumut Mobile) — PT Bank Sumut (Unit Syariah) — banksumut.co.id
+Bank Jateng Syariah Mobile — PT Bank Jateng (Unit Syariah) — bankjateng.co.id
+Bank Nagari Syariah — PT Bank Nagari (Unit Syariah) — banknagari.co.id
+Bank Riau Kepri Syariah — PT Bank Riau Kepri (Unit Syariah) — bankriaukepri.co.id
+Bank Kalsel Syariah — PT Bank Kalsel (Unit Syariah) — bankkalsel.co.id
+Bank Papua Syariah — PT Bank Papua (Unit Syariah) — bankpapua.co.id
+Bank Maluku Malut Syariah — PT Bank Maluku Malut (Unit Syariah) — bankmalukumalut.co.id
+Bank Kaltimtara Syariah — PT Bank Kaltimtara (Unit Syariah) — bankaltimtara.co.id
+Bank Sumsel Babel Syariah — PT Bank Sumsel Babel (Unit Syariah) — banksumselbabel.com
+Bank Kalbar Syariah — PT Bank Kalbar (Unit Syariah) — bankkalbar.co.id
+Bank Sulselbar Syariah — PT Bank Sulselbar (Unit Syariah) — banksulselbar.co.id
+Bank Bengkulu Syariah — PT Bank Bengkulu (Unit Syariah) — bankbengkulu.co.id
+Bank Lampung Syariah — PT Bank Lampung (Unit Syariah) — banklampung.co.id
+101. Bank Jambi Syariah — PT Bank Jambi (Unit Syariah) — bankjambi.co.id
+102. Bank DIY Syariah — PT Bank Pembangunan Daerah DIY (Unit Syariah) — bankbpd-diy.co.id
+103. Bank Kalteng Syariah — PT Bank Kalteng (Unit Syariah) — bankkalteng.co.id
+104. Bank Sultra Syariah — PT Bank Sultra (Unit Syariah) — banksultra.co.id
+105. Bank NTT Syariah — PT Bank NTT (Unit Syariah) — bankntt.co.id
+106. Bank NTB Syariah (sudah disebut, tapi catat juga ada sub-unit layanan mobile) — bankntbsyariah.co.id
+107. Bank Kalimantan Utara (BPD Kaltara) — PT Bank Pembangunan Daerah Kaltara — bankkaltara.co.id
+108. Bank DKI Syariah — PT Bank DKI (Unit Syariah) — bankdki.co.id
+109. Bank Bangkok Indonesia (Bangkok Bank) — Bangkok Bank Cabang Jakarta — bangkokbank.com
+110. Bank of China Indonesia — PT Bank of China Limited Jakarta Branch — bankofchina.com
+111. Bank BNP Paribas Indonesia — PT Bank BNP Paribas Indonesia — bnpparibas.co.id
+112. Bank China Construction Bank Indonesia — sudah disebut, tapi cabang ada beberapa.
+113. Bank Credit Agricole Indonesia — PT Bank Credit Agricole Indonesia — credit-agricole.com
+114. Bank Sumitomo Mitsui Indonesia (SMBC) — PT Bank Sumitomo Mitsui Indonesia — smbc.co.id
+115. Bank Mizuho Indonesia — sudah di batch sebelumnya.
+116. Bank Resona Perdania — sudah di batch sebelumnya.
+
+
+Bab 5. Protokol Verifikasi Legal / ILEGAL
+[PROTOCOL:OVERVIEW]
+Chatbot menerima data pengguna (nama, usia, pekerjaan, gaji) serta daftar pinjaman (platform, total pokok, cicilan bulanan). Sistem membandingkan setiap platform dengan daftar resmi OJK, bank, multifinance, dan BPR/BPRS digital. Hasil klasifikasi hanya dua: LEGAL atau ILEGAL.
+
+[PROTOCOL:ILEGAL]
+Jika platform TIDAK ditemukan di daftar legal:
+1. Tandai sebagai **ILEGAL**.  
+2. Rekomendasi kepada pengguna:  
+   - **JANGAN BAYAR** karena tidak ada kewajiban hukum.  
+   - **LAPOR ke Satgas PASTI / OJK** dengan bukti chat, rekening, atau screenshot.  
+   - Jika ada intimidasi atau ancaman, segera **LAPOR POLISI terdekat**.  
+3. Berikan template pesan singkat:  
+   “Anda tidak berizin. Saya tidak berkewajiban membayar. Hentikan semua komunikasi. Bukti saya simpan untuk dilaporkan.”
+
+[PROTOCOL:LEGAL]
+Jika platform DITEMUKAN di daftar legal:
+1. Tandai sebagai **LEGAL**.  
+2. Urutkan daftar pinjaman pengguna dari pokok terkecil ke terbesar.  
+3. Hitung **DSR = total cicilan bulanan ÷ gaji bulanan** dan tampilkan kategori:  
+   - <30% = aman, 30–50% = waspada, >50% = risiko tinggi.  
+4. Rekomendasi opsi:  
+   - **Bayar normal** jika DSR rendah.  
+   - **Restrukturisasi**: minta keringanan cicilan/tenor.  
+   - **Refinancing / Take-over**: gabungkan pinjaman legal ke bank/P2PL lain dengan bunga lebih kecil atau tenor lebih panjang agar cicilan sesuai gaji.  
+
+[PROTOCOL:MIXED]
+Jika pengguna memiliki campuran LEGAL dan ILEGAL:
+1. Pisahkan daftar.  
+2. Untuk **ILEGAL** → ikuti langkah [PROTOCOL:ILEGAL].  
+3. Untuk **LEGAL** → ikuti langkah [PROTOCOL:LEGAL].  
+4. Sajikan ringkasan satu halaman agar pengguna tenang dan tahu hak serta langkah nyata.

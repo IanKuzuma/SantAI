@@ -7,7 +7,6 @@ from langchain.vectorstores import FAISS
 from langchain.schema import Document
 import os
 from dotenv import load_dotenv
-import pypdf
 
 # Load API Key
 load_dotenv()
@@ -21,25 +20,29 @@ except:
 def build_knowledge_base():
     documents = []
     
-    # 1. Load data from text files with error handling
+    # 1. Load data from the comprehensive regulations file
     try:
-        with open('data/licensed_lenders.txt', 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:  # Only add non-empty lines
-                    documents.append(Document(page_content=f"Lender '{line}' is LICENSED and legal by OJK."))
+        with open('data/peraturan.txt', 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+            # Split the content into meaningful sections
+            sections = content.split('BAB ')[1:]  # Skip the header part
+            
+            for i, section in enumerate(sections):
+                # Add each major section as a document
+                if section.strip():
+                    bab_title = section.split('\n')[0].strip()
+                    documents.append(Document(
+                        page_content=f"BAB {i+1}: {bab_title}\n\n{section[:2000]}"  # Limit content length
+                    ))
+            
+            # Also add the complete file as a reference document
+            documents.append(Document(
+                page_content=f"PANDUAN LENGKAP VERIFIKASI PINJOL - Sumber: peraturan.txt\n\n{content[:4000]}"
+            ))
+            
     except FileNotFoundError:
-        st.sidebar.error("licensed_lenders.txt not found. Please create this file.")
-        return None
-
-    try:
-        with open('data/illegal_lenders.txt', 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    documents.append(Document(page_content=f"Lender '{line}' is ILLEGAL and not licensed by OJK. Warning: Do not engage with this lender."))
-    except FileNotFoundError:
-        st.sidebar.error("illegal_lenders.txt not found. Please create this file.")
+        st.sidebar.error("peraturan.txt not found. Please create this file in data/ directory.")
         return None
 
     # 2. Check if we have any documents
@@ -69,7 +72,7 @@ def build_knowledge_base():
     # 4. Create Vector Store
     try:
         vectorstore = FAISS.from_documents(documents, embeddings)
-        st.sidebar.success("Knowledge base loaded successfully!")
+        st.sidebar.success("Knowledge base loaded successfully from peraturan.txt!")
         return vectorstore
     except Exception as e:
         st.sidebar.error(f"Error creating vector store: {e}")

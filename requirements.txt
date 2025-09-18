@@ -6,7 +6,5 @@ langchain
 langchain-groq
 langchain-community
 faiss-cpu
-tiktoken # Needed for text splitting
+tiktoken
 requests
-beautifulsoup4 # For web scraping if needed
-pypdf # For reading PDF regulations
