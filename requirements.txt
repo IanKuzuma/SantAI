@@ -1,0 +1,11 @@
+streamlit
+groq
+python-dotenv
+langchain
+langchain-groq
+langchain-community
+chromadb
+tiktoken # Needed for text splitting
+requests
+beautifulsoup4 # For web scraping if needed
+pypdf # For reading PDF regulations
