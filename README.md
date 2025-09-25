@@ -1,8 +1,6 @@
-<div align="center">
-  <div style="background-color: white; padding: 10px; border-radius: 10px; display: inline-block;">
-    <img src="logo.png" alt="SantAI Logo" width="200"/>
-  </div>
-</div>
+<p align="center">
+  <img src="logo.png" alt="SantAI Logo" width="300" />
+</p>
 
 # SantAI - AI Financial Assistant for Debt Management
 
