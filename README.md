@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="logo.png" alt="SantAI Logo" width="200"/>
+  <img src="logo.png" alt="SantAI Logo" width="400"/>
 </p>
 
 # SantAI - AI Financial Assistant for Debt Management
 
 [![Meta Llama](https://img.shields.io/badge/Meta-Llama-FF6B35?style=for-the-badge&logo=meta&logoColor=white)](https://llama.meta.com/)
 [![Groq](https://img.shields.io/badge/Groq-00A67E?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com/)
-[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Faces-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://streamlit.io/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
 
