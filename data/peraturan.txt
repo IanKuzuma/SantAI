@@ -126,6 +126,7 @@ Bagian ini merangkum aturan hukum dan kode etik yang mengatur pinjaman legal, pe
 
 
 BAB 4. Bab: Sumber Rujukan 
+Gunakan BAB ini untuk membandingkan nama pemberi pinjaman yang disampaikan oleh user pada sistem SANTAI, jika namanya tidak serupa, maka masuk kategori ileal. Jika melakukan konfirmasi,sampaikan detail nama platform dan nama PT serta alamat websitenya sehingga user yakin ini merupakan platform tempat dia melakukan pinjaman.
 Daftar Platform Fintech Lending Legal (P2PL / LPBBTI) – Contoh Nama & Website
 Berikut beberapa platform P2PL legal di Indonesia lengkap nama PT & website, berdasarkan daftar OJK terbaru:
 1. Pintek | PT Pinduit Teknologi Indonesia | pintek.id
@@ -374,3 +375,187 @@ Jika pengguna memiliki campuran LEGAL dan ILEGAL:
 2. Untuk **ILEGAL** → ikuti langkah [PROTOCOL:ILEGAL].  
 3. Untuk **LEGAL** → ikuti langkah [PROTOCOL:LEGAL].  
 4. Sajikan ringkasan satu halaman agar pengguna tenang dan tahu hak serta langkah nyata.
+
+
+BAB 6. Keputusan & Respons (Decision Tree)
+TAGS: keputusan, legal, ilegal, pelaporan, restrukturisasi
+
+[FLOW:OVERVIEW]
+Setelah sistem mengklasifikasi pinjaman menjadi LEGAL atau ILEGAL, langkah tindak lanjut dibagi tiga skenario: ILEGAL, LEGAL, dan MIXED (campuran).
+
+[FLOW:ILLEGAL-ACTION]
+Jika ILEGAL:
+1. **JANGAN BAYAR** karena platform tidak berizin dan tidak ada kewajiban hukum untuk melunasi.
+2. **KUMPULKAN BUKTI**: simpan tangkapan layar aplikasi/web, chat atau SMS, nomor rekening penerima, bukti transfer.
+3. **LAPORKAN ke Satgas PASTI OJK** melalui:
+   - Telepon **157**
+   - WhatsApp **081157157157**
+   - Email **satgaspasti@ojk.go.id**
+   - Portal pelaporan online **https://sipasti.ojk.go.id/**
+4. **JAGA PRIVASI**: blokir akses kontak, hindari membagikan data pribadi ke pihak penagih.
+5. Jika ada ancaman fisik atau intimidasi, segera **LAPOR POLISI terdekat**.
+
+Contoh pesan singkat untuk penagih ilegal:
+> “Anda tidak berizin. Saya tidak berkewajiban membayar. Hentikan semua komunikasi. Bukti saya simpan untuk dilaporkan.”
+
+[FLOW:LEGAL-DSR]
+Jika LEGAL:
+1. **HITUNG DSR (Debt Service Ratio)** = total cicilan bulanan ÷ gaji bulanan.
+   - DSR <30% = aman
+   - 30–50% = waspada
+   - >50% = risiko tinggi
+2. **URUTKAN PINJAMAN** dari pokok terkecil ke terbesar untuk memudahkan prioritas pembayaran.
+3. **STRATEGI PELUNASAN**:
+   - **Avalanche** (bayar bunga tertinggi dulu) atau
+   - **Snowball** (bayar pokok terkecil dulu untuk motivasi).
+4. **PERTIMBANGKAN RESTRUKTURISASI / REFINANCING / TAKEOVER**:
+   - Ajukan restrukturisasi ke lender legal jika DSR tinggi.
+   - Cari opsi take-over atau refinancing ke bank / P2PL legal dengan bunga lebih rendah dan tenor lebih panjang.
+5. Jika penagihan dari lender legal terasa mengancam atau melanggar etika:
+   - Laporkan ke **AFPI**: https://afpi.or.id/pengaduan
+   - Laporkan ke OJK: konsumen@ojk.go.id
+
+[FLOW:MIXED]
+Jika MIXED (campuran LEGAL dan ILEGAL):
+1. **Pisahkan daftar** pinjaman: buat dua kelompok jelas LEGAL vs ILEGAL.
+2. Terapkan langkah [FLOW:ILLEGAL-ACTION] untuk yang ILEGAL.
+3. Terapkan langkah [FLOW:LEGAL-DSR] untuk yang LEGAL.
+4. Sajikan ringkasan personal: total DSR untuk pinjaman legal, rekomendasi refinancing/take-over, serta arahan pelaporan untuk yang ilegal.
+
+[FLOW:END]
+Prinsip utama: **tidak ditemukan di daftar legal = ILEGAL**. 
+Untuk LEGAL, bantu pengguna menata prioritas bayar, menganalisis kemampuan finansial, dan mencari opsi yang lebih ringan.
+
+
+BAB 7. TITLE: Hak Pengguna & Etika Penagihan
+TAGS: hak konsumen, privasi, penagihan, restrukturisasi
+
+[RIGHTS:OVERVIEW]
+Pengguna jasa pinjaman (bank, multifinance, P2PL) memiliki hak hukum untuk dilindungi dari penyalahgunaan data, intimidasi, dan penagihan tidak etis. Untuk pinjaman legal, pengguna juga berhak mengajukan restrukturisasi atau keringanan pembayaran. SantAI membantu mengenali hak ini agar pengguna tetap aman dan tenang.
+
+[RIGHTS:PRIVACY]
+1. **Hak atas kerahasiaan data pribadi**  
+   - Berdasarkan **Undang-Undang No. 27 Tahun 2022 tentang Perlindungan Data Pribadi (UU PDP)** Pasal 4 huruf a, setiap orang berhak atas perlindungan data pribadinya.  
+   - POJK **No. 10/POJK.05/2022** Pasal 31 juga mewajibkan penyelenggara P2PL menjaga kerahasiaan data pribadi pemberi pinjaman dan penerima pinjaman.  
+   - Aplikasi resmi tidak boleh mengakses kontak, foto, atau informasi pribadi di luar data yang diperlukan tanpa izin eksplisit.
+
+[RIGHTS:COLLECTION]
+2. **Hak dari intimidasi & penagihan tidak beretika**  
+   - **POJK 10/POJK.05/2022** Pasal 47: penagihan wajib dilakukan dengan cara yang beretika, tidak merendahkan martabat, tidak menggunakan kekerasan fisik atau verbal, serta dilarang menyebarkan data pribadi.  
+   - **Kode Etik Penyelenggara Layanan Pendanaan Bersama Berbasis Teknologi Informasi (AFPI)** Pasal 29–32:  
+     - Penagihan hanya boleh dilakukan pada jam kerja (pukul 08.00–20.00, waktu setempat).  
+     - Dilarang menghubungi kontak darurat, keluarga, atau atasan tanpa izin debitur.  
+     - Dilarang datang ke rumah atau tempat kerja tanpa persetujuan debitur; jika tetap memaksa masuk rumah tanpa izin, dapat dianggap **perbuatan melawan hukum** (KUHP Pasal 167 — memasuki pekarangan rumah tanpa izin pemilik).  
+
+[RIGHTS:RESTRUKTURISASI]
+3. **Hak meminta restrukturisasi & penyelesaian utang yang layak**  
+   - **POJK 10/POJK.05/2022** Pasal 50: penerima pinjaman dapat mengajukan perubahan skema pembayaran, perpanjangan tenor, atau pengurangan bunga sesuai kebijakan penyelenggara legal.  
+   - Untuk bank & multifinance, restrukturisasi juga diatur dalam **POJK 48/POJK.03/2020** dan kebijakan internal masing-masing bank, terutama saat debitur mengalami kesulitan keuangan.
+
+[RIGHTS:COMPLAINT]
+4. **Hak mengajukan pengaduan**  
+   - Untuk pinjaman **LEGAL**: keluhan penagihan tidak etis dapat dilaporkan ke:  
+     - **AFPI** (asosiasi fintech lending): https://afpi.or.id/pengaduan  
+     - **OJK**: konsumen@ojk.go.id atau telepon **157**  
+   - Untuk pinjaman **ILEGAL**: laporkan ke **Satgas PASTI OJK** melalui telepon **157**, WhatsApp **081157157157**, email **satgaspasti@ojk.go.id**, atau situs **https://sipasti.ojk.go.id/**
+
+[RIGHTS:ACTION-EXAMPLE]
+Contoh peringatan untuk pengguna:  
+> “Penagihan yang mengancam, mempermalukan, atau menyebarkan data pribadi Anda **dilarang oleh POJK 10/2022 Pasal 47 dan Kode Etik AFPI Pasal 29–32**. Jika mengalami hal tersebut, segera laporkan ke AFPI atau OJK.”
+
+[RIGHTS:EMERGENCY]
+Jika ancaman fisik, pemaksaan masuk rumah tanpa izin, atau pengambilalihan barang secara paksa:  
+- Lindungi diri, hubungi **Polisi 110** atau kantor polisi terdekat, rujukan hukum KUHP Pasal 167 (memasuki pekarangan tanpa izin pemilik rumah adalah tindak pidana).  
+
+[RIGHTS:DISCLAIMER]
+SantAI memberi informasi hukum dasar dan prosedur pengaduan; pengguna disarankan mencari nasihat profesional jika menghadapi sengketa yang kompleks.
+
+
+BAB 8. FAQ Cepat (Tanya-Jawab Pendek)
+TAGS: FAQ, legal, ilegal, penagihan, restrukturisasi, privasi, perlindungan diri
+
+[FAQ:UNKNOWN]
+Q: Saya tidak tahu aplikasi ini legal atau ilegal, bagaimana cara cek cepat?
+A: Ketik nama platform & situsnya di SantAI, sistem akan membandingkan dengan daftar resmi OJK (bank, multifinance, P2PL/LPBBTI, BPR/BPRS digital). Jika tidak ditemukan → **ILEGAL**, jangan bayar dan lapor ke Satgas PASTI. Jika ditemukan → **LEGAL**, lanjutkan ke analisis keuangan & opsi restrukturisasi.
+
+[FAQ:LIST-UPDATE]
+Q: Daftar legal OJK update setiap kapan?
+A: Minimal setiap bulan. SantAI menggunakan versi terbaru OJK Licensed List dan Satgas PASTI Illegal List yang diunduh resmi. Pastikan Anda selalu memeriksa update terakhir.
+
+[FAQ:THREAT]
+Q: Debt collector mengancam menyebarkan data pribadi saya, apa yang harus dilakukan?
+A: Tindakan tersebut **dilarang** (POJK 10/2022 Pasal 47, Kode Etik AFPI Pasal 29–32). Simpan bukti ancaman (chat, rekaman). Jangan balas dengan emosi. Laporkan ke:
+- **AFPI**: https://afpi.or.id/pengaduan
+- **OJK**: konsumen@ojk.go.id atau telp 157
+- **Polisi**: hubungi 110 atau kantor polisi terdekat jika ancaman serius/fisik.
+
+[FAQ:ILLEGAL-NO-PAY]
+Q: Jika pinjaman saya dinyatakan ILEGAL, apakah saya tetap harus membayar?
+A: Tidak. Tidak ada kewajiban melunasi pinjaman dari penyelenggara ilegal. Fokus mengamankan data, kumpulkan bukti, dan segera laporkan ke:
+- **Satgas PASTI OJK**: telepon 157, WA 081157157157, email satgaspasti@ojk.go.id, atau https://sipasti.ojk.go.id/
+- **Polisi**: jika ada ancaman atau pemaksaan pembayaran.
+
+[FAQ:ILLEGAL-COLLECTOR]
+Q: Penagih ilegal datang ke rumah saya, apa yang saya lakukan?
+A: Tolak dengan sopan tapi tegas, jangan izinkan masuk. Jika memaksa masuk, itu melanggar **KUHP Pasal 167** tentang memasuki pekarangan rumah tanpa izin pemilik. Rekam jika aman dilakukan, hubungi **polisi (110)** jika mereka memaksa. Laporkan juga ke Satgas PASTI.
+
+[FAQ:HOME-INTRUSION]
+Q: Bagaimana jika debt collector masuk rumah saya tanpa izin?
+A: Masuk rumah tanpa izin adalah tindak pidana menurut **KUHP Pasal 167** (pidana penjara paling lama 9 bulan). Jangan konfrontasi fisik, segera minta mereka keluar, rekam bukti jika aman, hubungi **polisi (110)** atau kantor polisi terdekat. Sertakan bukti (video/foto/identitas penagih). Untuk penagih dari pinjaman legal, laporkan juga ke **AFPI** atau **OJK**.
+
+[FAQ:LEGAL-COLLECTOR]
+Q: Penagihan dari penyelenggara legal terasa kasar atau mengancam, apa boleh dilaporkan?
+A: Boleh. Penagihan wajib sesuai etika (AFPI Pasal 29–32). Laporkan ke:
+- **AFPI** (untuk P2PL legal)
+- **OJK Konsumen**: konsumen@ojk.go.id / telp 157
+- **Polisi**: jika ada ancaman fisik atau pemaksaan.
+
+[FAQ:RELIEF]
+Q: Saya kesulitan bayar pinjaman legal, apa yang bisa dilakukan?
+A: Anda bisa:
+- Minta **restrukturisasi**: perpanjang tenor, turunkan bunga, atau tunda cicilan.
+- Ajukan **refinancing / take-over** ke bank atau P2PL legal dengan bunga lebih rendah & tenor lebih panjang.
+Siapkan data gaji, KTP, SLIK/iDeb, dan riwayat pinjaman.
+
+[FAQ:DSR-CHECK]
+Q: Bagaimana menghitung kemampuan bayar saya?
+A: Hitung **DSR** = total cicilan bulanan ÷ gaji bulanan × 100%.
+- <30% aman
+- 30–50% waspada
+- >50% berisiko, pertimbangkan restrukturisasi/refinancing
+
+[FAQ:REFINANCE]
+Q: Apa bedanya refinancing dan take-over?
+A: **Refinancing**: ubah pinjaman lama ke pinjaman baru dengan bunga/tenor berbeda tapi di lender sama atau berbeda.  
+**Take-over**: pindahkan semua pinjaman ke satu kreditur baru yang memberi cicilan lebih ringan.
+
+[FAQ:DATA-ACCESS]
+Q: Aplikasi legal boleh akses kontak saya?
+A: Tidak boleh sembarangan. **UU PDP 27/2022** dan POJK 10/2022 Pasal 31 melarang akses data pribadi tanpa persetujuan eksplisit.
+
+[FAQ:CREDIT-SCORE]
+Q: Jika saya tidak bayar pinjaman ilegal, apakah akan merusak BI Checking / SLIK?
+A: Tidak. Pinjaman ilegal tidak tercatat di SLIK OJK, sehingga tidak memengaruhi skor kredit resmi.
+
+[FAQ:NEW-PLATFORM]
+Q: Bagaimana jika platform baru belum ada di daftar tapi mengaku sedang proses izin?
+A: Anggap **ILEGAL/UNKNOWN** dulu untuk proteksi. Jangan bayar sampai izin resmi keluar dan tercatat di OJK. Bisa hubungi kontak OJK (157) untuk verifikasi.
+
+[FAQ:LEGAL-DATA-BREACH]
+Q: Penyedia legal menyebarkan data saya, apa bisa dituntut?
+A: Ya. Berdasarkan UU PDP & POJK 10/2022 Pasal 31, Anda dapat melaporkan ke OJK dan Kementerian Kominfo. Sertakan bukti kebocoran data.
+
+[FAQ:LEGAL-LOST-ACCESS]
+Q: Saya tidak bisa login ke aplikasi legal untuk cek saldo, apa yang harus dilakukan?
+A: Hubungi CS resmi penyelenggara, pastikan nomor izin dan website sesuai daftar OJK. Jika tidak ditanggapi, laporkan ke OJK konsumen@ojk.go.id.
+
+[FAQ:CHECK-LIST]
+Q: Apa dokumen yang sebaiknya saya siapkan untuk laporan masalah pinjaman?
+A: Minimal: KTP, nomor hp/email yang dipakai daftar, bukti transfer, bukti percakapan, nama & link aplikasi/platform, dan jika legal sertakan nomor perjanjian pinjaman.
+
+[FAQ:EMERGENCY]
+Q: Jika saya merasa keselamatan terancam?
+A: Segera hubungi **polisi (110)** atau kantor polisi terdekat. Jangan konfrontasi sendiri, amankan bukti ancaman.
+
+
+
